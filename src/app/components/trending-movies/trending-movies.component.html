@@ -1,0 +1,12 @@
+<section>
+    <h2 class="text-lg font-bold">Trending Movies</h2>
+    <div *ngIf="(trendingMovies$ | async) as trendingMovies">
+      <div class="grid grid-cols-3 gap-4">
+        <div *ngFor="let movie of trendingMovies" class="movie-card">
+          <img [src]="movie.thumbnailUrl" alt="{{ movie.title }}" />
+          <h3>{{ movie.title }}</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+  

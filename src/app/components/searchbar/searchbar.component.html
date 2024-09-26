@@ -1,1 +1,9 @@
-<p>searchbar works!</p>
+<div class="search-bar-container">
+  <input
+    type="text"
+    [(ngModel)]="searchTerm"
+    (input)="onSearchChange($event)"
+    placeholder="Search for movies or TV series"
+    class="search-input"
+  />
+</div>

@@ -3,8 +3,13 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-searchbar',
   templateUrl: './searchbar.component.html',
-  styleUrl: './searchbar.component.css'
+  styleUrls: ['./searchbar.component.css'],
 })
-export class SearchbarComponent {
+export class SearchBarComponent {
+  searchTerm: string = '';
 
+  onSearchChange(event: any) {
+    this.searchTerm = event.target.value;
+    // Logic for handling search term input can be implemented here
+  }
 }

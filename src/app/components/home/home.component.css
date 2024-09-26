@@ -1,0 +1,12 @@
+/* home.component.css */
+.home-container {
+    display: flex;
+    height: 100vh; /* Full height */
+  }
+  
+  .main-content {
+    flex-grow: 1; 
+    background-color: #1e1e1e; 
+    padding: 20px;
+  }
+  

@@ -1,36 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Movie } from '../models/movie.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MovieService {
-
-  private dataUrl = 'assets/data.json';  
+  private moviesUrl = 'assets/data.json';  
 
   constructor(private http: HttpClient) {}
 
-  getMovies(): Observable<any> {
-    return this.http.get(this.dataUrl);
-  }
-
-  getTrendingMovies(): Observable<any> {
-    return this.getMovies().pipe(
-      map(movies => movies.filter(movie => movie.isTrending))
-    );
-  }
-
-  getBookmarkedMovies(): Observable<any> {
-    return this.getMovies().pipe(
-      map(movies => movies.filter(movie => movie.isBookmarked))
-    );
-  }
-
-  getMoviesByCategory(category: string): Observable<any> {
-    return this.getMovies().pipe(
-      map(movies => movies.filter(movie => movie.category === category))
-    );
+  // Method to get movies (should return an observable)
+  getMovies(): Observable<Movie[]> {
+    return this.http.get<Movie[]>(this.moviesUrl);  // Ensure this returns the observable
   }
 }
