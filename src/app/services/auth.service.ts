@@ -1,23 +1,53 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { from } from 'rxjs';
+import { Router } from '@angular/router';
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from '@angular/fire/auth';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private afAuth: AngularFireAuth) {}
+  constructor(private auth: Auth, private router: Router) {}  // Inject Auth from AngularFire
 
-  login(email: string, password: string) {
-    return from(this.afAuth.signInWithEmailAndPassword(email, password));
+  // Sign up user
+  signUp(email: string, password: string): Promise<void> {
+    return createUserWithEmailAndPassword(this.auth, email, password)
+      .then((result) => {
+        console.log('User signed up successfully:', result);
+        this.router.navigate(['/login']); // Navigate after sign-up
+      })
+      .catch((error) => {
+        console.error('Error signing up:', error.message);
+      });
   }
 
-  signup(email: string, password: string) {
-    return from(this.afAuth.createUserWithEmailAndPassword(email, password));
+  // Log in user
+  login(email: string, password: string): Promise<void> {
+    return signInWithEmailAndPassword(this.auth, email, password)
+      .then((result) => {
+        console.log('User logged in successfully:', result);
+        this.router.navigate(['/home']); // Navigate after login
+      })
+      .catch((error) => {
+        console.error('Error logging in:', error.message);
+      });
   }
 
-  logout() {
-    return from(this.afAuth.signOut());
+  // Log out user
+  logout(): Promise<void> {
+    return signOut(this.auth).then(() => {
+      this.router.navigate(['/login']); // Navigate to login after logout
+    });
+  }
+
+  // Check if user is logged in
+  getAuthState(): Observable<any> {
+    return new Observable((observer) => {
+      const unsubscribe = onAuthStateChanged(this.auth, (user) => {
+        observer.next(user);
+      });
+      return { unsubscribe }; // Clean up subscription on destroy
+    });
   }
 }
