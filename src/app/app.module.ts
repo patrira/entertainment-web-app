@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode  } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +25,8 @@ import { SignUpComponent } from './pages/signup/signup.component';
 import { MainComponent } from './components/main/main.component';
 import { TrendingMoviesComponent } from './components/trending-movies/trending-movies.component';
 import { RecommendedMoviesComponent } from './components/recommended-movies/recommended-movies.component';
+import { FilterMoviesPipe } from './pipes/filter-movies.pipe';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { RecommendedMoviesComponent } from './components/recommended-movies/reco
     MainComponent,
     TrendingMoviesComponent,
     RecommendedMoviesComponent,
+    FilterMoviesPipe,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,8 @@ import { RecommendedMoviesComponent } from './components/recommended-movies/reco
     HttpClientModule, 
     StoreModule.forRoot({ movies: movieReducer }),
     // Import the EffectsModule and register the MovieEffects
-    EffectsModule.forRoot([MovieEffects])
+    EffectsModule.forRoot([MovieEffects]),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
   ],
   providers: [
     // Provide Firebase initialization here in the providers array

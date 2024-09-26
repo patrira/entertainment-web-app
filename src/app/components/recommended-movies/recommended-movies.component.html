@@ -1,9 +1,9 @@
 <section>
     <h2 class="text-lg font-bold">Recommended Movies</h2>
     <div *ngIf="(recommendedMovies$ | async) as recommendedMovies">
-      <div class="grid grid-cols-3 gap-4">
+      <div class="grid grid-cols-4 gap-4">
         <div *ngFor="let movie of recommendedMovies" class="movie-card">
-          <img [src]="movie.thumbnailUrl" alt="{{ movie.title }}" />
+          <img [src]="movie.thumbnail.regular.large" alt="{{ movie.title }}" />
           <h3>{{ movie.title }}</h3>
         </div>
       </div>

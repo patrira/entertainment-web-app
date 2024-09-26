@@ -6,5 +6,11 @@ export interface Movie {
   isBookmarked: boolean;
   category: 'Movie' | 'TV Series';
   rating: string;
-  thumbnailUrl: string;
+  thumbnail: {
+    regular: {
+      small: string;
+      medium: string;
+      large: string;
+    };
+  };
 }
