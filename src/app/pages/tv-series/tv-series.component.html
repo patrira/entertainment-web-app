@@ -1,1 +1,23 @@
-<p>tv-series works!</p>
+<div class="tv-series-page-container">
+    <!-- Search Bar -->
+    <app-searchbar (searchTermChange)="onSearchChange($event)"></app-searchbar>
+  
+    <!-- TV Series Section -->
+    <section class="tv-series-list mt-8">
+      <h2 class="text-lg font-bold">TV Series</h2>
+      <div *ngIf="filteredTvSeries.length > 0">
+        <div class="grid grid-cols-4 gap-4">
+          <div *ngFor="let tvSeries of filteredTvSeries" class="tv-series-card">
+            <img [src]="tvSeries.thumbnail.regular.medium" alt="{{ tvSeries.title }}" class="w-full h-auto" />
+            <h3 class="text-center text-white mt-2">{{ tvSeries.title }}</h3>
+          </div>
+        </div>
+      </div>
+  
+      <!-- No results found message -->
+      <div *ngIf="filteredTvSeries.length === 0" class="text-center text-white">
+        No TV series found
+      </div>
+    </section>
+  </div>
+  

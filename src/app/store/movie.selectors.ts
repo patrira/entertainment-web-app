@@ -22,3 +22,24 @@ export const selectRecommendedMovies = createSelector(
   selectAllMovies,
   (movies: Movie[]) => movies.filter(movie => !movie.isTrending)
 );
+
+// Select movies where the category is 'Movie'
+export const selectMoviesByCategory = createSelector(
+  selectAllMovies,
+  (movies: Movie[]) => movies.filter(movie => movie.category === 'Movie')
+);
+export const selectTvSeries = createSelector(
+  selectAllMovies,
+  (movies: Movie[]) => movies.filter(movie => movie.category === 'TV Series')
+);
+// Select bookmarked movies
+export const selectBookmarkedMovies = createSelector(
+  selectAllMovies,
+  (movies: Movie[]) => movies.filter(movie => movie.isBookmarked && movie.category === 'Movie')
+);
+
+// Select bookmarked TV series
+export const selectBookmarkedTvSeries = createSelector(
+  selectAllMovies,
+  (movies: Movie[]) => movies.filter(movie => movie.isBookmarked && movie.category === 'TV Series')
+);

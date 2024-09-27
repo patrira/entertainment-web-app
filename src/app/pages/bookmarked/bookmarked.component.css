@@ -1,0 +1,14 @@
+.bookmarked-page-container {
+    padding: 20px;
+    background-color: #1e1e1e;
+  }
+  
+  .movie-card, .tv-series-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .movie-card:hover, .tv-series-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+  

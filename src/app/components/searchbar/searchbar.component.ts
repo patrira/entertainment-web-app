@@ -1,10 +1,5 @@
-import { Component } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Movie } from '../../models/movie.model';
-import { AppState } from '../../store/app.state';
-import { selectAllMovies } from '../../store/movie.selectors';
-import { FilterMoviesPipe } from '../../pipes/filter-movies.pipe';
 
 @Component({
   selector: 'app-searchbar',
@@ -12,15 +7,14 @@ import { FilterMoviesPipe } from '../../pipes/filter-movies.pipe';
   styleUrls: ['./searchbar.component.css'],
 })
 export class SearchBarComponent {
+  @Input() allMovies: Movie[] = [];  // Input to receive movies from the parent component
   searchTerm: string = '';
-  allMovies$: Observable<Movie[]>;
 
-  constructor(private store: Store<AppState>) {
-    
-    this.allMovies$ = this.store.select(selectAllMovies);
-  }
+  @Output() searchTermChange = new EventEmitter<string>();
 
+  // Emit the search term when it changes
   onSearchChange(event: any): void {
-    this.searchTerm = event.target.value.toLowerCase();  
+    this.searchTerm = event.target.value;
+    this.searchTermChange.emit(this.searchTerm);  // Emit search term to parent
   }
 }

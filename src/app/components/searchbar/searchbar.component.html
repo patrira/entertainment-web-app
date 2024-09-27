@@ -4,14 +4,14 @@
     [(ngModel)]="searchTerm"
     (input)="onSearchChange($event)"
     placeholder="Search for movies or TV series"
-    class="search-input w-full max-w-lg px-4 py-2 text-gray-300 bg-gray-800 rounded-lg outline-none focus:ring-2 focus:ring-blue-600 transition-all"
+    class="search-input"
   />
 </div>
 
 <!-- Optional: Display search results (filtered) -->
 <div *ngIf="searchTerm.length > 0" class="search-results mt-4">
-  <div *ngFor="let movie of ((allMovies$ | async) || []) | filterMovies:searchTerm" class="movie-card">
-    <img [src]="movie.thumbnail.regular.large" alt="{{ movie.title }}" />
+  <div *ngFor="let movie of allMovies | filterMovies:searchTerm" class="movie-card">
+    <img [src]="movie.thumbnail.regular.small" alt="{{ movie.title }}" />
     <h3>{{ movie.title }}</h3>
   </div>
 </div>
