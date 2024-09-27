@@ -1,8 +1,8 @@
-/* sidebar.component.css */
+
 .sidebar-container {
-    width: 80px; /* Fixed width for sidebar */
-    background-color: #141414; /* Dark background */
-    height: 100vh; /* Full height of the viewport */
+    width: 80px; 
+    background-color: #161D2F; 
+    height: 100vh; 
   }
   
   .nav-link {
@@ -12,7 +12,8 @@
   }
   
   .nav-link:hover {
-    transform: scale(1.2); /* Hover effect to enlarge icons */
+    transform: scale(1.2);
+    
   }
   
   .user-avatar {

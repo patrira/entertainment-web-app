@@ -1,12 +1,32 @@
 <section>
-    <h2 class="text-lg font-bold">Recommended Movies</h2>
-    <div *ngIf="(recommendedMovies$ | async) as recommendedMovies">
-      <div class="grid grid-cols-4 gap-4">
-        <div *ngFor="let movie of recommendedMovies" class="movie-card">
-          <img [src]="movie.thumbnail.regular.large" alt="{{ movie.title }}" />
-          <h3>{{ movie.title }}</h3>
+  <h2 class="text-lg font-bold text-white">Recommended Movies</h2>
+  <div *ngIf="(recommendedMovies$ | async) as recommendedMovies">
+    <div class="grid grid-cols-4 gap-4">
+      <div *ngFor="let movie of recommendedMovies" class="movie-card relative">
+        <!-- Movie Image -->
+        <img [src]="movie.thumbnail.regular.large" alt="{{ movie.title }}" class="w-full h-auto rounded-lg" />
+        
+        <!-- Play Icon Overlay -->
+        <div class="absolute inset-0 flex items-center justify-center">
+          <img src="assets/icon-play.svg" alt="Play" class="w-12 h-12 opacity-90" />
+        </div>
+
+        <!-- Bookmark Icon -->
+        <div class="absolute top-2 right-2">
+          <img 
+            [src]="movie.isBookmarked ? 'assets/icon-bookmark-full.svg' : 'assets/icon-bookmark-empty.svg'" 
+            alt="Bookmark" 
+            class="w-6 h-6"
+          />
+        </div>
+
+        <!-- Movie Info -->
+        <div class="mt-2 text-white">
+          <p class="text-sm opacity-75">{{ movie.year }} • <img src="assets/icon-category-movie.svg" alt="Movie" class="inline w-4 h-4"/> Movie</p>
+          <p class="text-sm">{{ movie.rating }}</p>
+          <h3 class="font-bold">{{ movie.title }}</h3>
         </div>
       </div>
     </div>
-  </section>
-  
+  </div>
+</section>

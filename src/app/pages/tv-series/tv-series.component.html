@@ -1,23 +1,43 @@
 <div class="tv-series-page-container">
-    <!-- Search Bar -->
-    <app-searchbar (searchTermChange)="onSearchChange($event)"></app-searchbar>
-  
-    <!-- TV Series Section -->
-    <section class="tv-series-list mt-8">
-      <h2 class="text-lg font-bold">TV Series</h2>
-      <div *ngIf="filteredTvSeries.length > 0">
-        <div class="grid grid-cols-4 gap-4">
-          <div *ngFor="let tvSeries of filteredTvSeries" class="tv-series-card">
-            <img [src]="tvSeries.thumbnail.regular.medium" alt="{{ tvSeries.title }}" class="w-full h-auto" />
-            <h3 class="text-center text-white mt-2">{{ tvSeries.title }}</h3>
+  <!-- Search Bar -->
+  <app-searchbar (searchTermChange)="onSearchChange($event)"></app-searchbar>
+
+  <!-- TV Series Section -->
+  <section class="tv-series-list mt-8">
+    <h2 class="text-lg font-bold text-white">TV Series</h2>
+    <div *ngIf="filteredTvSeries.length > 0">
+      <div class="grid grid-cols-4 gap-4">
+        <div *ngFor="let tvSeries of filteredTvSeries" class="tv-series-card relative">
+          <!-- TV Series Image -->
+          <img [src]="tvSeries.thumbnail.regular.medium" alt="{{ tvSeries.title }}" class="w-full h-auto rounded-lg" />
+
+          <!-- Play Icon Overlay -->
+          <div class="absolute inset-0 flex items-center justify-center">
+            <img src="assets/icon-play.svg" alt="Play" class="w-12 h-12 opacity-90" />
+          </div>
+
+          <!-- Bookmark Icon -->
+          <div class="absolute top-2 right-2">
+            <img 
+              [src]="tvSeries.isBookmarked ? 'assets/icon-bookmark-full.svg' : 'assets/icon-bookmark-empty.svg'" 
+              alt="Bookmark" 
+              class="w-6 h-6"
+            />
+          </div>
+
+          <!-- TV Series Info -->
+          <div class="mt-2 text-white">
+            <p class="text-sm opacity-75">{{ tvSeries.year }} • <img src="assets/icon-category-tv.svg" alt="TV Series" class="inline w-4 h-4"/> TV Series</p>
+            <p class="text-sm">{{ tvSeries.rating }}</p>
+            <h3 class="font-bold">{{ tvSeries.title }}</h3>
           </div>
         </div>
       </div>
-  
-      <!-- No results found message -->
-      <div *ngIf="filteredTvSeries.length === 0" class="text-center text-white">
-        No TV series found
-      </div>
-    </section>
-  </div>
-  
+    </div>
+
+    <!-- No results found message -->
+    <div *ngIf="filteredTvSeries.length === 0" class="text-center text-white">
+      No TV series found
+    </div>
+  </section>
+</div>

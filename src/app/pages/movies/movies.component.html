@@ -1,23 +1,43 @@
 <div class="movies-page-container">
-    <!-- Search Bar -->
-    <app-searchbar (searchTermChange)="onSearchChange($event)"></app-searchbar>
-  
-    <!-- Movies Section -->
-    <section class="movies-list mt-8">
-      <h2 class="text-lg font-bold">Movies</h2>
-      <div *ngIf="filteredMovies.length > 0">
-        <div class="grid grid-cols-4 gap-4">
-          <div *ngFor="let movie of filteredMovies" class="movie-card">
-            <img [src]="movie.thumbnail.regular.medium" alt="{{ movie.title }}" class="w-full h-auto" />
-            <h3 class="text-center text-white mt-2">{{ movie.title }}</h3>
+  <!-- Search Bar -->
+  <app-searchbar (searchTermChange)="onSearchChange($event)"></app-searchbar>
+
+  <!-- Movies Section -->
+  <section class="movies-list mt-8">
+    <h2 class="text-lg font-bold text-white">Movies</h2>
+    <div *ngIf="filteredMovies.length > 0">
+      <div class="grid grid-cols-4 gap-4">
+        <div *ngFor="let movie of filteredMovies" class="movie-card relative">
+          <!-- Movie Image -->
+          <img [src]="movie.thumbnail.regular.medium" alt="{{ movie.title }}" class="w-full h-auto rounded-lg" />
+
+          <!-- Play Icon Overlay -->
+          <div class="absolute inset-0 flex items-center justify-center">
+            <img src="assets/icon-play.svg" alt="Play" class="w-12 h-12 opacity-90" />
+          </div>
+
+          <!-- Bookmark Icon -->
+          <div class="absolute top-2 right-2">
+            <img 
+              [src]="movie.isBookmarked ? 'assets/icon-bookmark-full.svg' : 'assets/icon-bookmark-empty.svg'" 
+              alt="Bookmark" 
+              class="w-6 h-6"
+            />
+          </div>
+
+          <!-- Movie Info -->
+          <div class="mt-2 text-white">
+            <p class="text-sm opacity-75">{{ movie.year }} • <img src="assets/icon-category-movie.svg" alt="Movie" class="inline w-4 h-4"/> Movie</p>
+            <p class="text-sm">{{ movie.rating }}</p>
+            <h3 class="font-bold">{{ movie.title }}</h3>
           </div>
         </div>
       </div>
-  
-      <!-- No results found message -->
-      <div *ngIf="filteredMovies.length === 0" class="text-center text-white">
-        No movies found
-      </div>
-    </section>
-  </div>
-  
+    </div>
+
+    <!-- No results found message -->
+    <div *ngIf="filteredMovies.length === 0" class="text-center text-white">
+      No movies found
+    </div>
+  </section>
+</div>

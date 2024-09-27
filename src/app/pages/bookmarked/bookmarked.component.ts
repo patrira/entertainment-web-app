@@ -36,17 +36,13 @@ export class BookmarkedComponent implements OnInit {
     this.searchTerm = searchTerm.toLowerCase();
 
     // Filter bookmarked movies based on search term
-    this.store.select(selectBookmarkedMovies).subscribe((movies: Movie[]) => {
-      this.filteredMovies = movies.filter(movie =>
-        movie.title.toLowerCase().includes(this.searchTerm)
-      );
-    });
+    this.filteredMovies = this.filteredMovies.filter(movie =>
+      movie.title.toLowerCase().includes(this.searchTerm)
+    );
 
     // Filter bookmarked TV series based on search term
-    this.store.select(selectBookmarkedTvSeries).subscribe((tvSeries: Movie[]) => {
-      this.filteredTvSeries = tvSeries.filter(tvSeries =>
-        tvSeries.title.toLowerCase().includes(this.searchTerm)
-      );
-    });
+    this.filteredTvSeries = this.filteredTvSeries.filter(tvSeries =>
+      tvSeries.title.toLowerCase().includes(this.searchTerm)
+    );
   }
 }
