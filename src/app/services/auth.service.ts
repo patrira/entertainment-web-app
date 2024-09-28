@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-  constructor(private auth: Auth, private router: Router) {}  // Inject Auth from AngularFire
+  constructor(private auth: Auth, private router: Router) {}
 
   // Sign up user
   signUp(email: string, password: string): Promise<void> {
@@ -19,35 +19,36 @@ export class AuthService {
       })
       .catch((error) => {
         console.error('Error signing up:', error.message);
+        alert('Sign-up failed: ' + error.message); // Optionally display error to the user
       });
   }
 
   // Log in user
   login(email: string, password: string): Promise<void> {
     return signInWithEmailAndPassword(this.auth, email, password)
-      .then((result) => {
-        console.log('User logged in successfully:', result);
-        this.router.navigate(['/home']); // Navigate after login
+      .then(() => {
+        this.router.navigate(['/home']);  // Navigate after login
       })
       .catch((error) => {
         console.error('Error logging in:', error.message);
+        alert('Login failed: ' + error.message);  // Optionally display error to the user
       });
   }
 
   // Log out user
   logout(): Promise<void> {
     return signOut(this.auth).then(() => {
-      this.router.navigate(['/login']); // Navigate to login after logout
+      this.router.navigate(['/login']);  // Navigate to login after logout
     });
   }
 
-  // Check if user is logged in
+  // Get Auth State to check if user is logged in
   getAuthState(): Observable<any> {
     return new Observable((observer) => {
       const unsubscribe = onAuthStateChanged(this.auth, (user) => {
         observer.next(user);
       });
-      return { unsubscribe }; // Clean up subscription on destroy
+      return { unsubscribe };  // Clean up subscription on destroy
     });
   }
 }

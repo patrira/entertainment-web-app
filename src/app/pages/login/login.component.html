@@ -6,7 +6,7 @@
 
   <!-- Login Container -->
   <div class="w-full max-w-md containerbg shadow-lg p-6 mt-16">
-    <h2 class="text-center text-2xl font-semibold text-white">Login to your Account</h2>
+    <h2 class="text-center text-2xl font-semibold text-white">Login </h2>
     
     <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="mt-6">
       <div class="mb-4">
@@ -43,7 +43,7 @@
         type="submit" 
         class="w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600"
         [disabled]="loginForm.invalid">
-        Login
+        Login to your Account
       </button>
     </form>
 
