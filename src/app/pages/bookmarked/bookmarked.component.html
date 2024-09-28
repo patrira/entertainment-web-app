@@ -13,13 +13,13 @@
   
             <!-- Play Icon Overlay -->
             <div class="absolute inset-0 flex items-center justify-center">
-              <img src="assets/icons/play-icon.svg" alt="Play" class="w-12 h-12 opacity-90" />
+              <img src="assets/icon-play.svg" alt="Play" class="w-12 h-12 opacity-90" />
             </div>
   
             <!-- Bookmark Icon -->
             <div class="absolute top-2 right-2">
               <img 
-                [src]="movie.isBookmarked ? 'assets/icons/bookmark-filled.svg' : 'assets/icons/bookmark-outline.svg'" 
+                [src]="movie.isBookmarked ? 'assets/icon-bookmark-full.svg' : 'assets/icon-bookmark-empty.svg'" 
                 alt="Bookmark" 
                 class="w-6 h-6"
               />
@@ -27,7 +27,7 @@
   
             <!-- Movie Info -->
             <div class="mt-2 text-white">
-              <p class="text-sm opacity-75">{{ movie.year }} • <img src="assets/icons/movie-icon.svg" alt="Movie" class="inline w-4 h-4"/> Movie</p>
+              <p class="text-sm opacity-75">{{ movie.year }} • <img src="assets/icon-category-movie.svg" alt="Movie" class="inline w-4 h-4"/> Movie</p>
               <p class="text-sm">{{ movie.rating }}</p>
               <h3 class="font-bold">{{ movie.title }}</h3>
             </div>
@@ -54,13 +54,13 @@
   
             <!-- Play Icon Overlay -->
             <div class="absolute inset-0 flex items-center justify-center">
-              <img src="assets/icons/play-icon.svg" alt="Play" class="w-12 h-12 opacity-90" />
+              <img src="assets/icon-play.svg" alt="Play" class="w-12 h-12 opacity-90" />
             </div>
   
             <!-- Bookmark Icon -->
             <div class="absolute top-2 right-2">
               <img 
-                [src]="tvSeries.isBookmarked ? 'assets/icons/bookmark-filled.svg' : 'assets/icons/bookmark-outline.svg'" 
+                [src]="tvSeries.isBookmarked ? 'assets/icon-bookmark-full.svg' : 'assets/icon-bookmark-empty.svg'" 
                 alt="Bookmark" 
                 class="w-6 h-6"
               />
@@ -68,7 +68,7 @@
   
             <!-- TV Series Info -->
             <div class="mt-2 text-white">
-              <p class="text-sm opacity-75">{{ tvSeries.year }} • <img src="assets/icons/tv-series-icon.svg" alt="TV Series" class="inline w-4 h-4"/> TV Series</p>
+              <p class="text-sm opacity-75">{{ tvSeries.year }} • <img src="assets/icon-category-tv.svg" alt="TV Series" class="inline w-4 h-4"/> TV Series</p>
               <p class="text-sm">{{ tvSeries.rating }}</p>
               <h3 class="font-bold">{{ tvSeries.title }}</h3>
             </div>
