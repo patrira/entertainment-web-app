@@ -1,7 +1,55 @@
-.bgcolor{
-    background-color: #10141E;
+/* General Styles */
+.bgcolor {
+    background-color: #121826; /* Dark background */
 }
 
-.containerbg{
-    background-color: #161D2F;
+/* Container background styling */
+.containerbg {
+    background-color: #1E2438; /* Slightly lighter background */
+    border-radius: 10px;
+}
+
+/* Input Field Styling */
+input[type="email"], 
+input[type="password"] {
+    border: none;
+    border-bottom: 2px solid #5A698F; /* Single line border */
+    background-color: transparent;
+    color: #ffffff;
+    padding: 10px 0;
+    outline: none;
+    width: 100%;
+    font-size: 16px;
+}
+
+input[type="email"]:focus, 
+input[type="password"]:focus {
+    border-bottom-color: #f00; /* Red border when focused */
+}
+
+input::placeholder {
+    color: #5A698F; /* Placeholder color */
+}
+
+/* Button Styling */
+button {
+    background-color: #f00; /* Red background */
+    color: #ffffff; /* White text */
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ffffff; /* White background on hover */
+    color: #f00; /* Red text */
+}
+
+/* Error message styles */
+.text-red-500 {
+    color: #f00; /* Red for errors */
+    font-size: 12px;
 }

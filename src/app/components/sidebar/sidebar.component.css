@@ -1,44 +1,7 @@
-
-.sidebar-container {
-    width: 80px; 
-    background-color: #161D2F; 
-    height: 100vh; 
-  }
-  
-  .nav-link {
-    display: block;
-    padding: 10px;
-    transition: transform 0.3s ease;
-  }
-  
-  .nav-link:hover {
-    transform: scale(1.2);
-    
-  }
-  
-  .user-avatar {
-    margin-top: auto; /* Push avatar to the bottom */
-  }
-
-  /* sidebar.component.css */
-.sidebar-container {
-    width: 80px; /* Default width for large screens */
-    background-color: #141414;
-    height: 100vh;
-  }
-  
-  @media (max-width: 768px) {
-    .sidebar-container {
-      width: 100%; 
-      height: auto; 
-      flex-direction: row; 
-      justify-content: space-around; 
-      padding: 10px 0;
-    }
-  
-    .user-avatar {
-      display: none; 
-    }
-  }
-  
-  
+/* Active State for the Icons */
+.active-link img {
+  background-color: white;
+  color: black;
+  border-radius: 0; /* Remove any rounding */
+  padding: 0.5rem; /* Adds padding to match icon spacing */
+}
