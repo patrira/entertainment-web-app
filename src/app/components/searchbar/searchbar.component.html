@@ -1,4 +1,4 @@
-<div class="search-bar-container">
+<div class="search-bar-container fixed top-16 lg:top-0 w-full lg:static bg-[#121826] p-4 rounded-lg z-40">
   <img src="assets/icon-search.svg" alt="Search Icon" class="search-icon" />
   <input
     type="text"
@@ -7,12 +7,4 @@
     placeholder="Search for movies or TV series"
     class="search-input"
   />
-</div>
-
-<!-- Optional: Display search results (filtered) -->
-<div *ngIf="searchTerm.length > 0" class="search-results mt-4">
-  <div *ngFor="let movie of allMovies | filterMovies:searchTerm" class="movie-card">
-    <img [src]="movie.thumbnail.regular.small" alt="{{ movie.title }}" />
-    <h3>{{ movie.title }}</h3>
-  </div>
 </div>

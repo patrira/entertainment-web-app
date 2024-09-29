@@ -1,9 +1,17 @@
-.movie-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Tailwind CSS for Trending Movies */
+.trending-movies-section {
+    @apply mb-8; /* Margin between sections */
   }
   
-  .movie-card:hover {
-    transform: scale(1.05); /* Slightly enlarge on hover */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+  .movie-card {
+    @apply min-w-[300px] lg:min-w-[220px] transition-all; /* Wider for small screens, more compact for desktop */
+  }
+  
+  .movie-card:hover .absolute {
+    @apply opacity-100; /* Show Play icon on hover */
+  }
+  
+  .overflow-x-scroll {
+    @apply flex space-x-4 overflow-x-auto; /* Horizontal scroll for trending movies */
   }
   

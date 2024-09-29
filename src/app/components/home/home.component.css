@@ -1,13 +1,9 @@
-/* home.component.css */
+/* Tailwind CSS for Home page */
 .home-container {
-    display: flex;
-    height: 100vh; 
-    
-    background-color: #10141E;
+    @apply flex flex-col lg:flex-row h-screen bg-gray-900; /* Vertical on desktop, horizontal on mobile/tablet */
   }
   
   .main-content {
-    flex-grow: 1; 
-    padding: 20px;
+    @apply flex-1 p-4 overflow-y-auto; /* Main content should scroll, sidebar fixed */
   }
   

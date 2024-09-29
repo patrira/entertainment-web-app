@@ -1,9 +1,17 @@
+/* Tailwind CSS for Recommended Movies */
 .movie-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    @apply transition-all; /* Apply smooth hover effect */
   }
   
   .movie-card:hover {
-    transform: scale(1.05); /* Slightly enlarge on hover */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+    @apply scale-105 shadow-xl; /* Slightly enlarge the movie card on hover */
+  }
+  
+  .movie-card:hover .absolute {
+    @apply opacity-100; /* Show the play icon on hover */
+  }
+  
+  .grid {
+    @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4; /* Responsive grid for 2, 3, and 4 columns */
   }
   

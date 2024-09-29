@@ -6,31 +6,29 @@
   <section class="tv-series-list mt-8">
     <h2 class="text-lg font-bold text-white">TV Series</h2>
     <div *ngIf="filteredTvSeries.length > 0">
-      <div class="grid grid-cols-4 gap-4">
+      <!-- Apply grid classes directly in the HTML -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         <div *ngFor="let tvSeries of filteredTvSeries" class="tv-series-card relative">
           <!-- TV Series Image -->
           <img [src]="tvSeries.thumbnail.regular.medium" alt="{{ tvSeries.title }}" class="w-full h-auto rounded-lg" />
 
           <!-- Play Icon Overlay -->
-          <div class="absolute inset-0 flex items-center justify-center">
+          <div class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
             <img src="assets/icon-play.svg" alt="Play" class="w-12 h-12 opacity-90" />
           </div>
 
           <!-- Bookmark Icon -->
           <div class="absolute top-2 right-2">
-            <img 
-              [src]="tvSeries.isBookmarked ? 'assets/icon-bookmark-full.svg' : 'assets/icon-bookmark-empty.svg'" 
-              alt="Bookmark" 
-              class="w-6 h-6"
-            />
+            <img [src]="tvSeries.isBookmarked ? 'assets/icon-bookmark-full.svg' : 'assets/icon-bookmark-empty.svg'" alt="Bookmark" class="w-6 h-6" />
           </div>
 
-          <!-- TV Series Info -->
-          <div class="mt-2 text-white">
-            <p class="text-sm opacity-75">{{ tvSeries.year }} • <img src="assets/icon-category-tv.svg" alt="TV Series" class="inline w-4 h-4"/> TV Series</p>
+          <!-- TV Series Info (Year, Category, Rating inline) -->
+          <div class="mt-2 text-white flex justify-between items-center">
+            <p class="text-sm opacity-75">{{ tvSeries.year }}</p>
+            <p class="text-sm"><img src="assets/icon-category-tv.svg" alt="TV Series" class="inline w-4 h-4" /> TV Series</p>
             <p class="text-sm">{{ tvSeries.rating }}</p>
-            <h3 class="font-bold">{{ tvSeries.title }}</h3>
           </div>
+          <h3 class="font-bold">{{ tvSeries.title }}</h3>
         </div>
       </div>
     </div>
