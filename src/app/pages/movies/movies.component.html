@@ -1,3 +1,5 @@
+<app-sidebar class="lg:w-16 lg:h-full lg:sticky lg:top-0 w-full"></app-sidebar>
+
 <div class="movies-page-container bg-slate-950">
   <!-- Search Bar -->
   <app-searchbar (searchTermChange)="onSearchChange($event)"></app-searchbar>
@@ -23,7 +25,7 @@
           </div>
 
           <!-- Movie Info (Year, Category, Rating inline) -->
-          <div class="mt-2 text-white flex justify-between items-center">
+          <div class="mt-2 text-white flex justify-left gap-4 items-center">
             <p class="text-sm opacity-75">{{ movie.year }}</p>
             <p class="text-sm"><img src="assets/icon-category-movie.svg" alt="Movie" class="inline w-4 h-4" /> Movie</p>
             <p class="text-sm">{{ movie.rating }}</p>

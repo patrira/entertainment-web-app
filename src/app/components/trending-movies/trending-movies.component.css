@@ -1,17 +1,16 @@
-/* Tailwind CSS for Trending Movies */
 .trending-movies-section {
-    @apply mb-8; /* Margin between sections */
+    @apply mb-8;
   }
   
   .movie-card {
-    @apply min-w-[300px] lg:min-w-[220px] transition-all; /* Wider for small screens, more compact for desktop */
+    @apply min-w-[300px] lg:min-w-[220px] transition-all;
   }
   
   .movie-card:hover .absolute {
-    @apply opacity-100; /* Show Play icon on hover */
+    @apply opacity-100;
   }
   
   .overflow-x-scroll {
-    @apply flex space-x-4 overflow-x-auto; /* Horizontal scroll for trending movies */
+    @apply flex space-x-4 overflow-x-auto;
   }
   

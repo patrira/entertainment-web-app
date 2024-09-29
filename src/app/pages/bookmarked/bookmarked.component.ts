@@ -11,36 +11,31 @@ import { selectBookmarkedMovies, selectBookmarkedTvSeries } from '../../store/mo
   styleUrls: ['./bookmarked.component.css'],
 })
 export class BookmarkedComponent implements OnInit {
-  bookmarkedMovies$!: Observable<Movie[]>;  // Observable for bookmarked movies
-  bookmarkedTvSeries$!: Observable<Movie[]>;  // Observable for bookmarked TV series
-  filteredMovies: Movie[] = [];  // Filtered bookmarked movies
-  filteredTvSeries: Movie[] = [];  // Filtered bookmarked TV series
-  searchTerm: string = '';  // Search term from the search bar
+  bookmarkedMovies$!: Observable<Movie[]>;
+  bookmarkedTvSeries$!: Observable<Movie[]>;
+  filteredMovies: Movie[] = [];
+  filteredTvSeries: Movie[] = [];
+  searchTerm: string = '';
 
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
-    // Subscribe to bookmarked movies and apply search filtering
     this.store.select(selectBookmarkedMovies).subscribe((movies: Movie[]) => {
-      this.filteredMovies = movies;  // Initialize with all bookmarked movies
+      this.filteredMovies = movies;
     });
 
-    // Subscribe to bookmarked TV series and apply search filtering
     this.store.select(selectBookmarkedTvSeries).subscribe((tvSeries: Movie[]) => {
-      this.filteredTvSeries = tvSeries;  // Initialize with all bookmarked TV series
+      this.filteredTvSeries = tvSeries;
     });
   }
 
-  // Handle search term change
-  onSearchChange(searchTerm: string): void {
+  onSearchChange(searchTerm: string): void {  // Accept string as search term
     this.searchTerm = searchTerm.toLowerCase();
 
-    // Filter bookmarked movies based on search term
     this.filteredMovies = this.filteredMovies.filter(movie =>
       movie.title.toLowerCase().includes(this.searchTerm)
     );
 
-    // Filter bookmarked TV series based on search term
     this.filteredTvSeries = this.filteredTvSeries.filter(tvSeries =>
       tvSeries.title.toLowerCase().includes(this.searchTerm)
     );

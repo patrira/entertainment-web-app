@@ -3,11 +3,13 @@ import { loadMoviesSuccess } from './movie.actions';
 import { Movie } from '../models/movie.model';
 
 export interface MovieState {
+  trending: any;
   movies: Movie[];
 }
 
 export const initialState: MovieState = {
-  movies: []
+  movies: [],
+  trending: undefined
 };
 
 export const movieReducer = createReducer(

@@ -11,24 +11,20 @@ import { selectMoviesByCategory } from '../../store/movie.selectors';
   styleUrls: ['./movies.component.css'],
 })
 export class MoviesComponent implements OnInit {
-  movies$!: Observable<Movie[]>;  // Observable to store movies
-  filteredMovies: Movie[] = [];  // Array to store filtered movies
-  searchTerm: string = '';  // Search term from the search bar
+  movies$!: Observable<Movie[]>;
+  filteredMovies: Movie[] = [];
+  searchTerm: string = '';
 
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
-    // Get movies with the category 'Movie' from the store
     this.movies$ = this.store.select(selectMoviesByCategory);
-
-    // Subscribe to movies and filter them based on search term
     this.movies$.subscribe((movies: Movie[]) => {
       this.filteredMovies = movies;
     });
   }
 
-  // Filter movies based on search term
-  onSearchChange(searchTerm: string): void {
+  onSearchChange(searchTerm: string): void {  // Accept string as search term
     this.searchTerm = searchTerm.toLowerCase();
     this.movies$.subscribe((movies: Movie[]) => {
       this.filteredMovies = movies.filter(movie =>
