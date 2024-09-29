@@ -1,43 +1,37 @@
-<app-sidebar class="lg:w-16 lg:h-full lg:sticky lg:top-0 w-full"></app-sidebar>
+<div class="app-layout lg:flex bg-slate-950">
+  <!-- Sidebar: Fixed on the left -->
+  <app-sidebar class="lg:w-20 lg:h-screen lg:sticky lg:top-0 w-full"></app-sidebar>
 
-<div class="movies-page-container bg-slate-950">
-  <!-- Search Bar -->
-  <app-searchbar (searchTermChange)="onSearchChange($event)"></app-searchbar>
+  <!-- Main Content: Occupies remaining space -->
+  <div class="main-content-container flex-1 p-6">
+    <!-- Search Bar -->
+    <app-searchbar (searchTermChange)="onSearchChange($event)"></app-searchbar>
 
-  <!-- Movies Section -->
-  <section class="movies-list mt-8">
-    <h2 class="text-lg font-bold text-white">Movies</h2>
-    <div *ngIf="filteredMovies.length > 0">
-      <!-- Apply grid classes directly in the HTML -->
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        <div *ngFor="let movie of filteredMovies" class="movie-card relative">
-          <!-- Movie Image -->
-          <img [src]="movie.thumbnail.regular.medium" alt="{{ movie.title }}" class="w-full h-auto rounded-lg" />
-
-          <!-- Play Icon Overlay -->
-          <div class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
-            <img src="assets/icon-play.svg" alt="Play" class="w-12 h-12 opacity-90" />
+    <!-- Movies Section -->
+    <section class="movies-list mt-8">
+      <h2 class="text-lg font-bold text-white">Movies</h2>
+      <div *ngIf="filteredMovies.length > 0">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div *ngFor="let movie of filteredMovies" class="movie-card relative">
+            <img [src]="movie.thumbnail.regular.medium" alt="{{ movie.title }}" class="w-full h-auto rounded-lg" />
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+              <img src="assets/icon-play.svg" alt="Play" class="w-12 h-12 opacity-90" />
+            </div>
+            <div class="absolute top-2 right-2">
+              <img [src]="movie.isBookmarked ? 'assets/icon-bookmark-full.svg' : 'assets/icon-bookmark-empty.svg'" alt="Bookmark" class="w-6 h-6" />
+            </div>
+            <div class="mt-2 text-white flex justify-left gap-4 items-center">
+              <p class="text-sm opacity-75">{{ movie.year }}</p>
+              <p class="text-sm"><img src="assets/icon-category-movie.svg" alt="Movie" class="inline w-4 h-4" /> Movie</p>
+              <p class="text-sm">{{ movie.rating }}</p>
+            </div>
+            <h3 class="font-bold text-white">{{ movie.title }}</h3>
           </div>
-
-          <!-- Bookmark Icon -->
-          <div class="absolute top-2 right-2">
-            <img [src]="movie.isBookmarked ? 'assets/icon-bookmark-full.svg' : 'assets/icon-bookmark-empty.svg'" alt="Bookmark" class="w-6 h-6" />
-          </div>
-
-          <!-- Movie Info (Year, Category, Rating inline) -->
-          <div class="mt-2 text-white flex justify-left gap-4 items-center">
-            <p class="text-sm opacity-75">{{ movie.year }}</p>
-            <p class="text-sm"><img src="assets/icon-category-movie.svg" alt="Movie" class="inline w-4 h-4" /> Movie</p>
-            <p class="text-sm">{{ movie.rating }}</p>
-          </div>
-          <h3 class="font-bold text-white">{{ movie.title }}</h3>
         </div>
       </div>
-    </div>
-
-    <!-- No results found message -->
-    <div *ngIf="filteredMovies.length === 0" class="text-center text-white bg-slate-950">
-      No movies found
-    </div>
-  </section>
+      <div *ngIf="filteredMovies.length === 0" class="text-center text-white bg-slate-950">
+        No movies found
+      </div>
+    </section>
+  </div>
 </div>
