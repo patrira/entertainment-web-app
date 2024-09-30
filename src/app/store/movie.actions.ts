@@ -9,3 +9,9 @@ export const loadMoviesSuccess = createAction(
   '[Movies API] Load Movies Success',
   props<{ movies: Movie[] }>()
 );
+
+
+export const toggleBookmark = createAction(
+  '[Movies] Toggle Bookmark',
+  props<{ movieId: Number }>()  
+);

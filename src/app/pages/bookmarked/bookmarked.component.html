@@ -1,10 +1,10 @@
 <div class="app-layout lg:flex bg-slate-950">
- 
+  
   <app-sidebar class="lg:w-20 lg:h-screen lg:sticky lg:top-0 w-full"></app-sidebar>
 
   
   <div class="main-content-container flex-1 p-6">
-   
+    
     <app-searchbar (searchTermChange)="onSearchChange($event)"></app-searchbar>
 
    
@@ -17,12 +17,15 @@
             <div class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
               <img src="assets/icon-play.svg" alt="Play" class="w-12 h-12 opacity-90" />
             </div>
-            <div class="absolute top-2 right-2">
+            <div class="absolute top-2 right-2" (click)="onToggleBookmark(movie.id)">
               <img [src]="movie.isBookmarked ? 'assets/icon-bookmark-full.svg' : 'assets/icon-bookmark-empty.svg'" alt="Bookmark" class="w-6 h-6" />
             </div>
             <div class="mt-2 text-white flex justify-left gap-4 items-center">
               <p class="text-sm opacity-75">{{ movie.year }}</p>
-              <p class="text-sm"><img src="assets/icon-category-movie.svg" alt="Movie" class="inline w-4 h-4" /> Movie</p>
+              <p class="text-sm">
+                <img [src]="movie.category === 'Movie' ? 'assets/icon-category-movie.svg' : 'assets/icon-category-tv.svg'" alt="{{ movie.category }}" class="inline w-4 h-4" />
+                {{ movie.category }}
+              </p>
               <p class="text-sm">{{ movie.rating }}</p>
             </div>
             <h3 class="font-bold text-white">{{ movie.title }}</h3>
@@ -44,15 +47,18 @@
             <div class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
               <img src="assets/icon-play.svg" alt="Play" class="w-12 h-12 opacity-90" />
             </div>
-            <div class="absolute top-2 right-2">
+            <div class="absolute top-2 right-2" (click)="onToggleBookmark(tvSeries.id)">
               <img [src]="tvSeries.isBookmarked ? 'assets/icon-bookmark-full.svg' : 'assets/icon-bookmark-empty.svg'" alt="Bookmark" class="w-6 h-6" />
             </div>
             <div class="mt-2 text-white flex justify-left gap-4 items-center">
               <p class="text-sm opacity-75">{{ tvSeries.year }}</p>
-              <p class="text-sm"><img src="assets/icon-category-tv.svg" alt="TV Series" class="inline w-4 h-4" /> TV Series</p>
+              <p class="text-sm">
+                <img [src]="tvSeries.category === 'TV Series' ? 'assets/icon-category-tv.svg' : 'assets/icon-category-movie.svg'" alt="{{ tvSeries.category }}" class="inline w-4 h-4" />
+                {{ tvSeries.category }}
+              </p>
               <p class="text-sm">{{ tvSeries.rating }}</p>
             </div>
-            <h3 class="font-bold">{{ tvSeries.title }}</h3>
+            <h3 class="font-bold text-white">{{ tvSeries.title }}</h3>
           </div>
         </div>
       </div>

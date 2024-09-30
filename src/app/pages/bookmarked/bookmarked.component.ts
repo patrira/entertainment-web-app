@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { Movie } from '../../models/movie.model';
 import { AppState } from '../../store/app.state';
 import { selectBookmarkedMovies, selectBookmarkedTvSeries } from '../../store/movie.selectors';
+import { toggleBookmark } from '../../store/movie.actions';  
 
 @Component({
   selector: 'app-bookmarked',
@@ -29,9 +30,8 @@ export class BookmarkedComponent implements OnInit {
     });
   }
 
-  onSearchChange(searchTerm: string): void { 
+  onSearchChange(searchTerm: string): void {
     this.searchTerm = searchTerm.toLowerCase();
-
     this.filteredMovies = this.filteredMovies.filter(movie =>
       movie.title.toLowerCase().includes(this.searchTerm)
     );
@@ -39,5 +39,9 @@ export class BookmarkedComponent implements OnInit {
     this.filteredTvSeries = this.filteredTvSeries.filter(tvSeries =>
       tvSeries.title.toLowerCase().includes(this.searchTerm)
     );
+  }
+
+  onToggleBookmark(movieId: Number): void {
+    this.store.dispatch(toggleBookmark({ movieId }));  
   }
 }
