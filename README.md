@@ -7,7 +7,7 @@ This project is an Entertainment Web Application built using Angular that allows
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files. here is the link to the project lab hosted on vercel: https://entertainment-web-app-liart.vercel.app/
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files. here is the link to the project lab hosted on vercel: https://entertainmentwebpatrira.netlify.app/
 
 ## Code scaffolding
 
