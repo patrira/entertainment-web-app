@@ -1,16 +1,22 @@
-.trending-movies-section {
-    @apply mb-8;
-  }
-  
+.trending-movies {
+  @apply mb-8;
+}
+
+.movie-card {
+  @apply min-w-[300px] lg:min-w-[220px] transition-all;
+}
+
+.movie-card:hover .absolute {
+  @apply opacity-100;
+}
+
+.overflow-x-scroll {
+  @apply flex space-x-4 overflow-x-auto;
+}
+
+/* Ensure responsiveness */
+@media (min-width: 640px) {
   .movie-card {
-    @apply min-w-[300px] lg:min-w-[220px] transition-all;
+    @apply w-56; /* Reduce the size of movie cards for larger screens */
   }
-  
-  .movie-card:hover .absolute {
-    @apply opacity-100;
-  }
-  
-  .overflow-x-scroll {
-    @apply flex space-x-4 overflow-x-auto;
-  }
-  
+}

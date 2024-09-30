@@ -1,7 +1,7 @@
 <section class="trending-movies mt-8">
   <h2 class="text-lg font-bold text-white">Trending Movies</h2>
   <div *ngIf="(trendingMovies$ | async) as trendingMovies">
-    <div class="flex overflow-x-auto space-x-4 p-4">
+    <div class="flex overflow-x-auto space-x-4 p-4" #trendingMoviesContainer>
       <div *ngFor="let movie of trendingMovies" class="movie-card relative w-64 flex-shrink-0">
         <!-- Movie Image -->
         <img [src]="movie.thumbnail.regular.large" alt="{{ movie.title }}" class="w-full h-auto rounded-lg" />

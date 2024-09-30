@@ -1,5 +1,10 @@
-/* Tailwind for main component */
 .main-container {
-    @apply flex flex-col p-4 bg-gray-900; /* Background same as the home page */
+  @apply p-4 bg-gray-900 min-h-screen;
+}
+
+/* Ensure responsiveness for different screen sizes */
+@media (min-width: 1024px) {
+  .main-container {
+    @apply ml-20; /* Add left margin when the sidebar is shown */
   }
-  
+}

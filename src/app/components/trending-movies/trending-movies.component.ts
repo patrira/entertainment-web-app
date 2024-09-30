@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core'; 
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { Movie } from '../../models/movie.model';
@@ -10,19 +10,20 @@ import { selectTrendingMovies } from '../../store/movie.selectors';
   templateUrl: './trending-movies.component.html',
   styleUrls: ['./trending-movies.component.css'],
 })
-export class TrendingMoviesComponent implements OnInit {
+export class TrendingMoviesComponent implements OnInit, AfterViewInit {
   trendingMovies$!: Observable<Movie[]>; // Observable for trending movies
 
-  @ViewChild('trendingMoviesContainer') trendingMoviesContainer!: ElementRef; // Reference to the container for scrolling
-trendingMovies: any;
+  @ViewChild('trendingMoviesContainer') trendingMoviesContainer!: ElementRef; // Reference for scrolling
 
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
     // Select trending movies from the store
     this.trendingMovies$ = this.store.select(selectTrendingMovies);
+  }
 
-    // Start automatic scrolling every 3 seconds
+  ngAfterViewInit(): void {
+    // Start automatic scrolling after view is initialized
     this.autoScroll();
   }
 
@@ -30,6 +31,6 @@ trendingMovies: any;
     const container = this.trendingMoviesContainer.nativeElement;
     setInterval(() => {
       container.scrollBy({ left: container.offsetWidth, behavior: 'smooth' });
-    }, 3000); // Adjust the interval duration as needed (3000ms = 3 seconds)
+    }, 3000); // Scroll every 3 seconds
   }
 }

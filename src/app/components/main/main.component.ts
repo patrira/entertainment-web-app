@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MovieService } from '../../services/movie.service';
-
+import { Store } from '@ngrx/store';
+import { AppState } from '../../store/app.state';
 import { loadMovies } from '../../store/movie.actions';
 
 @Component({
@@ -9,8 +9,7 @@ import { loadMovies } from '../../store/movie.actions';
   styleUrls: ['./main.component.css'],
 })
 export class MainComponent implements OnInit {
-  store: any;
-  constructor(private movieService: MovieService) {}
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
     this.store.dispatch(loadMovies());
