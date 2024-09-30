@@ -1,19 +1,19 @@
-/* General Styles */
+
 .bgcolor {
-    background-color: #121826; /* Dark background */
+    background-color: #121826; 
 }
 
-/* Container background styling */
+
 .containerbg {
-    background-color: #1E2438; /* Slightly lighter background */
+    background-color: #1E2438; 
     border-radius: 10px;
 }
 
-/* Input Field Styling */
+
 input[type="email"], 
 input[type="password"] {
     border: none;
-    border-bottom: 2px solid #5A698F; /* Single line border */
+    border-bottom: 2px solid #5A698F; 
     background-color: transparent;
     color: #ffffff;
     padding: 10px 0;
@@ -24,17 +24,17 @@ input[type="password"] {
 
 input[type="email"]:focus, 
 input[type="password"]:focus {
-    border-bottom-color: #f00; /* Red border when focused */
+    border-bottom-color: #f00; 
 }
 
 input::placeholder {
-    color: #5A698F; /* Placeholder color */
+    color: #5A698F; 
 }
 
-/* Button Styling */
+
 button {
-    background-color: #f00; /* Red background */
-    color: #ffffff; /* White text */
+    background-color: #f00; 
+    color: #ffffff; 
     border: none;
     border-radius: 10px;
     padding: 10px;
@@ -44,12 +44,12 @@ button {
 }
 
 button:hover {
-    background-color: #ffffff; /* White background on hover */
-    color: #f00; /* Red text */
+    background-color: #ffffff; 
+    color: #f00; 
 }
 
-/* Error message styles */
+
 .text-red-500 {
-    color: #f00; /* Red for errors */
+    color: #f00;
     font-size: 12px;
 }

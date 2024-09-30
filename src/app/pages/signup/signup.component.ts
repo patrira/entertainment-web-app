@@ -19,13 +19,13 @@ export class SignUpComponent {
     }, { validator: this.passwordMatchValidator });
   }
 
-  // Password match validator
+  
   passwordMatchValidator(group: FormGroup): any {
     const passwordControl = group.get('password');
     const confirmPasswordControl = group.get('confirmPassword');
 
     if (!passwordControl || !confirmPasswordControl) {
-      return null;  // Prevent null reference errors
+      return null;  
     }
 
     return passwordControl.value === confirmPasswordControl.value ? null : { mismatch: true };

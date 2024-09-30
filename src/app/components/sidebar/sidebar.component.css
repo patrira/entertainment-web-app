@@ -2,26 +2,26 @@
   @apply flex fixed top-0 left-0 w-full lg:w-20 h-16 lg:h-screen bg-[#161D2F] z-50 lg:flex-col items-center justify-between;
 }
 
-/* Active State for the Icons */
+
 .active-link img {
   background-color: white;
   padding: 0.5rem;
   border-radius: 0;
 }
 
-/* Styling for Hover State */
+
 .nav-link img:hover {
-  background-color: #FC4747; /* Red color for hover */
-  border-radius: 0.5rem; /* Rounded corners for hover state */
+  background-color: #FC4747; 
+  border-radius: 0.5rem; 
 }
 
-/* Adjustments for smaller screens */
+
 @media (max-width: 1024px) {
   .sidebar-container {
-    height: 16; /* Set height for small devices */
+    height: 16;
   }
 
   .user-avatar img {
-    width: 8; /* Adjust avatar size */
+    width: 8; 
   }
 }

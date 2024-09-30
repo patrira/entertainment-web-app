@@ -29,7 +29,7 @@ export class BookmarkedComponent implements OnInit {
     });
   }
 
-  onSearchChange(searchTerm: string): void {  // Accept string as search term
+  onSearchChange(searchTerm: string): void { 
     this.searchTerm = searchTerm.toLowerCase();
 
     this.filteredMovies = this.filteredMovies.filter(movie =>

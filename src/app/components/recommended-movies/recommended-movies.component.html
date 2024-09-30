@@ -1,23 +1,23 @@
 <section>
   <h2 class="text-lg font-bold text-white">Recommended Movies</h2>
   <div *ngIf="(recommendedMovies$ | async) as recommendedMovies">
-    <!-- Responsive Grid for Movies -->
+    
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       <div *ngFor="let movie of recommendedMovies" class="movie-card relative">
-        <!-- Movie Image -->
+       
         <img [src]="movie.thumbnail.regular.large" alt="{{ movie.title }}" class="w-full h-auto rounded-lg" />
 
-        <!-- Play Icon (Visible on Hover) -->
+      
         <div class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
           <img src="assets/icon-play.svg" alt="Play" class="w-12 h-12 opacity-90" />
         </div>
 
-        <!-- Bookmark Icon -->
+        
         <div class="absolute top-2 right-2">
           <img [src]="movie.isBookmarked ? 'assets/icon-bookmark-full.svg' : 'assets/icon-bookmark-empty.svg'" alt="Bookmark" class="w-6 h-6" />
         </div>
 
-        <!-- Movie Info (Year, Category, Rating inline) -->
+        
         <div class="mt-2 text-white flex justify-left gap-4 items-center ">
           <p class="text-sm opacity-75">{{ movie.year }}</p>
           <p class="text-sm"><img src="assets/icon-category-movie.svg" alt="Movie" class="inline w-4 h-4" /> Movie</p>

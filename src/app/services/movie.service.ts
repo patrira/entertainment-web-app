@@ -11,8 +11,8 @@ export class MovieService {
 
   constructor(private http: HttpClient) {}
 
-  // Method to get movies (should return an observable)
+
   getMovies(): Observable<Movie[]> {
-    return this.http.get<Movie[]>(this.moviesUrl);  // Ensure this returns the observable
+    return this.http.get<Movie[]>(this.moviesUrl);  
   }
 }

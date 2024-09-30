@@ -1,13 +1,13 @@
 <div class="app-layout lg:flex bg-slate-950">
-  <!-- Sidebar: Fixed on the left -->
+  
   <app-sidebar class="lg:w-20 lg:h-screen lg:sticky lg:top-0 w-full"></app-sidebar>
 
-  <!-- Main Content: Occupies remaining space -->
+  
   <div class="main-content-container flex-1 p-6">
-    <!-- Search Bar -->
+    
     <app-searchbar (searchTermChange)="onSearchChange($event)"></app-searchbar>
 
-    <!-- Movies Section -->
+    
     <section class="movies-list mt-8">
       <h2 class="text-lg font-bold text-white">Movies</h2>
       <div *ngIf="filteredMovies.length > 0">

@@ -16,6 +16,6 @@ export const movieReducer = createReducer(
   initialState,
   on(loadMoviesSuccess, (state, { movies }) => ({
     ...state,
-    movies: movies as Movie[]  // Ensure type is Movie[]
+    movies: movies as Movie[]  
   }))
 );

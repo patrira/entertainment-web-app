@@ -24,7 +24,7 @@ export class MoviesComponent implements OnInit {
     });
   }
 
-  onSearchChange(searchTerm: string): void {  // Accept string as search term
+  onSearchChange(searchTerm: string): void {  
     this.searchTerm = searchTerm.toLowerCase();
     this.movies$.subscribe((movies: Movie[]) => {
       this.filteredMovies = movies.filter(movie =>

@@ -1,13 +1,13 @@
-/* Tailwind CSS for TV Series page */
+
 .tv-series-page-container {
-    @apply p-4 bg-gray-900 min-h-screen; /* Dark background and full height */
+    @apply p-4 bg-gray-900 min-h-screen; 
   }
   
   .tv-series-card {
-    @apply relative transition-all; /* Hover effect for Play icon */
+    @apply relative transition-all; 
   }
   
   .tv-series-card:hover .absolute {
-    @apply opacity-100; /* Show Play icon on hover */
+    @apply opacity-100;
   }
   

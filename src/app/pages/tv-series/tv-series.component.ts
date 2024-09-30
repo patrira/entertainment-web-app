@@ -24,7 +24,7 @@ export class TvSeriesComponent implements OnInit {
     });
   }
 
-  onSearchChange(searchTerm: string): void {  // Accept string as search term
+  onSearchChange(searchTerm: string): void {  
     this.searchTerm = searchTerm.toLowerCase();
     this.tvSeries$.subscribe((tvSeries: Movie[]) => {
       this.filteredTvSeries = tvSeries.filter(tv =>

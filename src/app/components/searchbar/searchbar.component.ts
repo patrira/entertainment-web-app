@@ -7,14 +7,14 @@ import { Movie } from '../../models/movie.model';
   styleUrls: ['./searchbar.component.css'],
 })
 export class SearchBarComponent {
-  @Input() allMovies: Movie[] = [];  // Input to receive movies from the parent component
+  @Input() allMovies: Movie[] = [];  
   searchTerm: string = '';
 
   @Output() searchTermChange = new EventEmitter<string>();
 
-  // Emit the search term when it changes
+  
   onSearchChange(event: any): void {
     this.searchTerm = event.target.value;
-    this.searchTermChange.emit(this.searchTerm);  // Emit search term to parent
+    this.searchTermChange.emit(this.searchTerm);  
   }
 }

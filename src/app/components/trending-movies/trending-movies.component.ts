@@ -11,19 +11,19 @@ import { selectTrendingMovies } from '../../store/movie.selectors';
   styleUrls: ['./trending-movies.component.css'],
 })
 export class TrendingMoviesComponent implements OnInit, AfterViewInit {
-  trendingMovies$!: Observable<Movie[]>; // Observable for trending movies
+  trendingMovies$!: Observable<Movie[]>; 
 
-  @ViewChild('trendingMoviesContainer') trendingMoviesContainer!: ElementRef; // Reference for scrolling
+  @ViewChild('trendingMoviesContainer') trendingMoviesContainer!: ElementRef; 
 
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
-    // Select trending movies from the store
+    
     this.trendingMovies$ = this.store.select(selectTrendingMovies);
   }
 
   ngAfterViewInit(): void {
-    // Start automatic scrolling after view is initialized
+    
     this.autoScroll();
   }
 
@@ -31,6 +31,6 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
     const container = this.trendingMoviesContainer.nativeElement;
     setInterval(() => {
       container.scrollBy({ left: container.offsetWidth, behavior: 'smooth' });
-    }, 3000); // Scroll every 3 seconds
+    }, 3000); 
   }
 }

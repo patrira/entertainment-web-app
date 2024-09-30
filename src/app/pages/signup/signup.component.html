@@ -1,16 +1,16 @@
 <div class="flex items-center justify-center min-h-screen bgcolor">
-  <!-- Logo Container -->
+  
   <div class="absolute top-8">
     <img src="assets/logo.svg" alt="Logo" class="mx-auto w-24" />
   </div>
 
-  <!-- Signup Container -->
+ 
   <div class="w-full max-w-md containerbg shadow-lg rounded-lg p-6 mt-32">
     <h2 class="text-center text-2xl font-semibold text-white">Sign Up</h2>
 
     <form [formGroup]="signupForm" (ngSubmit)="onSignUp()" class="mt-6">
       
-      <!-- Email Input Field -->
+     
       <div class="mb-4">
         <label for="email" class="block text-sm font-bold text-gray-300">Email</label>
         <input 
@@ -21,14 +21,14 @@
           class="w-full bg-transparent border-b-2 border-5A698F text-gray-300"
           [ngClass]="{'border-red-500': signupForm.get('email')?.invalid && signupForm.get('email')?.touched}">
         
-        <!-- Email Error Handling -->
+        
         <div *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched" class="text-red-500 text-sm">
           <p *ngIf="signupForm.get('email')?.errors?.['required']">Email is required</p>
           <p *ngIf="signupForm.get('email')?.errors?.['email']">Invalid email format</p>
         </div>
       </div>
 
-      <!-- Password Input Field -->
+     
       <div class="mb-4">
         <label for="password" class="block text-sm font-bold text-gray-300">Password</label>
         <input 
@@ -39,14 +39,14 @@
           class="w-full bg-transparent border-b-2 border-5A698F text-gray-300"
           [ngClass]="{'border-red-500': signupForm.get('password')?.invalid && signupForm.get('password')?.touched}">
         
-        <!-- Password Error Handling -->
+        
         <div *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched" class="text-red-500 text-sm">
           <p *ngIf="signupForm.get('password')?.errors?.['required']">Password is required</p>
           <p *ngIf="signupForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters</p>
         </div>
       </div>
 
-      <!-- Confirm Password Input Field -->
+      
       <div class="mb-6">
         <label for="confirmPassword" class="block text-sm font-bold text-gray-300">Confirm Password</label>
         <input 
@@ -57,13 +57,12 @@
           class="w-full bg-transparent border-b-2 border-5A698F text-gray-300"
           [ngClass]="{'border-red-500': signupForm.errors?.['mismatch'] && signupForm.get('confirmPassword')?.touched}">
         
-        <!-- Confirm Password Error Handling -->
         <div *ngIf="signupForm.errors?.['mismatch'] && signupForm.get('confirmPassword')?.touched" class="text-red-500 text-sm">
           <p>Passwords do not match</p>
         </div>
       </div>
 
-      <!-- Submit Button -->
+    
       <button 
         type="submit" 
         class="w-full bg-red-500 text-white py-2 rounded-lg hover:bg-white hover:text-red-500"

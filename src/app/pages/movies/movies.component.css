@@ -1,6 +1,4 @@
-/* Tailwind CSS for Movies Grid */
 
-  
   .movie-card {
     @apply transition-all;
   }
